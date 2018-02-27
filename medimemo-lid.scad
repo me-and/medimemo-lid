@@ -26,7 +26,7 @@ frag = 90;
 difference() {
     rotate([90,0,180])
     {
-        rotate([0,0,0])
+        union()
         {
             %
             translate([-big_end_width/2, 0, 0])
@@ -54,7 +54,7 @@ difference() {
                  [(bottom_width + top_width)/2, depth],
                  [(bottom_width - top_width)/2, depth]]);
 
-        rotate([0,0,0])
+        union()
         {
             %
             translate([-small_end_width/2, 0, big_end_len + centre_len])
