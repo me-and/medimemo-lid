@@ -23,7 +23,8 @@ label_depth = 0.5;
 
 frag = 90;
 
-difference() {
+difference()
+{
     rotate([90,0,180])
     {
         union()
