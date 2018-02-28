@@ -15,7 +15,7 @@ echo(big_end_len=big_end_len, small_end_len=small_end_len,
 big_end_radius = 4;
 small_end_radius = 3;
 
-label = "Sunday";
+label = "";
 label_border = 2;
 font="Helvetica Neue";
 stretch = 1.5;
