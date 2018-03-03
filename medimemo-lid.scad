@@ -21,7 +21,7 @@ font="Helvetica Neue";
 stretch = 1.5;
 label_depth = 0.5;
 
-frag = 90;
+$fn = 90;
 
 difference()
 {
@@ -35,11 +35,11 @@ difference()
 
             translate([big_end_width/2 - big_end_radius, 0, big_end_radius])
             rotate([270, 0, 0])
-            cylinder(h=depth, r=big_end_radius, $fn=frag);
+            cylinder(h=depth, r=big_end_radius);
 
             translate([big_end_radius - big_end_width/2, 0, big_end_radius])
             rotate([270, 0, 0])
-            cylinder(h=depth, r=big_end_radius, $fn=frag);
+            cylinder(h=depth, r=big_end_radius);
 
             translate([-big_end_width/2 + big_end_radius, 0, 0])
             cube([big_end_width - 2*big_end_radius, depth, big_end_radius]);
@@ -65,13 +65,13 @@ difference()
                         0,
                         total_len - small_end_radius])
             rotate([270, 0, 0])
-            cylinder(h=depth, r=small_end_radius, $fn=frag);
+            cylinder(h=depth, r=small_end_radius);
 
             translate([small_end_radius - small_end_width/2,
                        0,
                        total_len - small_end_radius])
             rotate([270, 0, 0])
-            cylinder(h=depth, r=small_end_radius, $fn=frag);
+            cylinder(h=depth, r=small_end_radius);
 
             translate([-small_end_width/2, 0, big_end_len + centre_len])
             cube([small_end_width, depth, small_end_len - small_end_radius]);
@@ -93,5 +93,5 @@ difference()
     scale([1, stretch, 1])
     rotate([0,0,-90])
     text(label, halign="right", valign="baseline",
-         size=top_width/2 - label_border, font=font, $fn=frag);
+         size=top_width/2 - label_border, font=font);
 }
