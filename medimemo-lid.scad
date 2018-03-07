@@ -9,8 +9,6 @@ big_end_len = 9.6;
 small_end_len = 9.4;
 total_len = 93.4;
 centre_len = total_len - big_end_len - small_end_len;
-echo(big_end_len=big_end_len, small_end_len=small_end_len,
-     centre_len=centre_len, total_len=total_len);
 
 big_end_radius = 4;
 small_end_radius = 3;
