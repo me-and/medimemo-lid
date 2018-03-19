@@ -1,13 +1,13 @@
 depth = 1.5;
 
 big_end_width = 20;
-bottom_width = 18;
-top_width = 17;
+bottom_width = 18.4;
+top_width = 17.3;
 small_end_width = top_width;
 
-big_end_len = 9.6;
+big_end_len = 10.1;
 small_end_len = 9.4;
-total_len = 93.4;
+total_len = 93.9;
 centre_len = total_len - big_end_len - small_end_len;
 
 big_end_radius = 4;
