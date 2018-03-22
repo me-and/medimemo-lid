@@ -11,7 +11,7 @@ else
 	DOCKER_DEP =
 endif
 
-.docker/build: Dockerfile
+$(DOCKER_DEP): Dockerfile
 	$(DOCKER) build --tag openscad .
 	mkdir -p .docker
 	touch .docker/build
