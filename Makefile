@@ -16,5 +16,8 @@ $(DOCKER_DEP): Dockerfile
 	mkdir -p .docker
 	touch .docker/build
 
+blank.stl: medimemo-lid.scad $(DOCKER_DEP)
+	$(BUILD_CMD) -o $@ $<
+
 %.stl: medimemo-lid.scad $(DOCKER_DEP)
 	$(BUILD_CMD) -o $@ -D label=\"$(@:.stl=)\" $<
