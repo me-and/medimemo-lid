@@ -17,3 +17,8 @@ jobs:
       with:
         name: stl
         path: lids
+
+    - name: Create GitHub Gist
+      if: github.ref == 'refs/heads/main'
+      run: |
+        gh gist create --public lids/*.stl
