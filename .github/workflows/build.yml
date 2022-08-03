@@ -20,5 +20,7 @@ jobs:
 
     - name: Create GitHub Gist
       if: github.ref == 'refs/heads/main'
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         gh gist create --public lids/*.stl
