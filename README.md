@@ -26,6 +26,6 @@ Pre-rendered STL files
 If you don't want the hassle of building your own lids, I've [pre-rendered some with weekday names in English][prerendered].
 
 [OpenSCAD]: http://www.openscad.org/
-[MediMemo]: http://amzn.eu/0sNxdws?tag=meand-21
+[MediMemo]: http://www.atcamed.com/medimemo/index.html
 [Slic3r]: https://slic3r.org/
-[prerendered]: https://gist.github.com/me-and/7380ee68cbc2d1b75518041dd6efa087
+[prerendered]: https://gist.github.com/me-and/301d97648008bfb42f4573cb1a5ee3b4
