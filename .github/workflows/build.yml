@@ -23,4 +23,6 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        gh gist create --public lids/*.stl
+        for stl in lids/{blank,Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday}.stl; do
+          gh gist edit 301d97648008bfb42f4573cb1a5ee3b4 -a "$stl"
+        done
