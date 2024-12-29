@@ -1,4 +1,7 @@
-all: Monday.stl Tuesday.stl Wednesday.stl Thursday.stl Friday.stl Saturday.stl Sunday.stl
+all: all-base all-letters
+
+all-base: Monday.stl Tuesday.stl Wednesday.stl Thursday.stl Friday.stl Saturday.stl Sunday.stl
+all-letters: Monday-letters.stl Tuesday-letters.stl Wednesday-letters.stl Thursday-letters.stl Friday-letters.stl Saturday-letters.stl Sunday-letters.stl
 
 DOCKER = docker
 OPENSCAD = openscad
@@ -19,5 +22,8 @@ $(DOCKER_DEP): Dockerfile
 blank.stl: medimemo-lid.scad $(DOCKER_DEP)
 	$(BUILD_CMD) -o $@ $<
 
+%-letters.stl: medimemo-lid.scad $(DOCKER_DEP)
+	$(BUILD_CMD) -o $@ -D label=\"$(@:-letters.stl=)\" -D DoPart=\"letters\" $<
+
 %.stl: medimemo-lid.scad $(DOCKER_DEP)
-	$(BUILD_CMD) -o $@ -D label=\"$(@:.stl=)\" $<
+	$(BUILD_CMD) -o $@ -D label=\"$(@:.stl=)\" -D DoPart=\"body\" $<
