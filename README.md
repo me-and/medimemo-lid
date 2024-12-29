@@ -6,26 +6,38 @@ This is an [OpenSCAD] file for printing replacement lids for [MediMemo pill orga
 Usage
 -----
 
-To print these lids, you will normally need to convert the OpenSCAD files into something your 3D printer can use.  There are typically two steps to this: creating a stereolithograph (STL) file, which describes the 3D shapes in the specific lid you want to print, then "slicing" the STL file to produce the set of instructions your 3D printer will actually use.
+OpenSCAD should be able to generate STL files straightforwardly.  If you want labels on the lids, just change the text in the `label` variable near the top.
 
-The easiest way to build the STL files is to use Make from the command line.  If you have OpenSCAD installed and want a lid that says "Wednesday", just run:
+If you have a multi-material printer, you can generate a pair of STL files, one containing the base and one containing the lettering, so you can have coloured letters rather than just indented letters.  You'll need to set the `DoPart` variable to `"letters"` for the letters part.  If you're using [PrusaSlicer][], import both files at once and you should get the option to set up the print as a single multi-material object rather than as two separate objects.
 
-    make Wednesday.stl
+Alternatively, you can use `make`:
 
-Alternatively, if you don't have OpenSCAD but do have Docker (I expect, but haven't tested, that drop-in replacements for Docker like Podman will Just Work), try:
+-   `make blank.stl` will create a lid with no text.
+-   `make Tuesday.stl` will create a lid with the text "Tuesday".
+-   `make Wednesday-letters.stl` will create the letters _only_ for a multi-material print of a lid with the text "Wednesday".
+-   `make Thursday.stl Thursday-letters.stl` will create both files needed for a multi-material print of a lid with the text "Thursday".
+-   `make all-base` will create a full English week's worth of lids.
+-   `make all` will create a full English week's worth of lids as well as the lettering for multi-material prints.
 
-    make USE_DOCKER=Yes Wednesday.stl
+If you want to use any other text, you can just change the filename in the `make` command and it should Just Work, provided you don't want to use the literal word "blank" or a word that ends with "-letters".  Non-ASCII characters seem to work for me in brief testing, but you might need to change the font in the OpenSCAD file.
 
-If you want an unlabelled lid, just specify the output filename as `blank.stl`.
-
-For slicing the STL files to get something your printer can use, you're on your own, as that depends a lot on the specifics of your printer.  Personally, I use [Slic3r].
+If you don't have OpenSCAD installed but do have Docker[^1], add `USE_DOCKER=Yes` to the `make` arguments (e.g. `make USE_DOCKER=Yes Saturday.stl``).
 
 Pre-rendered STL files
 ----------------------
 
 If you don't want the hassle of building your own lids, I've [pre-rendered some with weekday names in English][prerendered].
 
+[^1]: Let's be fair, very few people looking to build and print 3D models are likely to have Docker but not OpenSCAD.  This was partly an exercise in getting the same build environment on my local machine as on GitHub Actions, and partly just me playing around with [Alex Chan's suggested build process][Alex builds].
+
+Credits
+-------
+
+Setting up the multi-material print is heavily based on [Jeff Barr's _Creating Multi-Extruder Designs in OpenSCAD for 3D Printing_][Barr]
+
 [OpenSCAD]: http://www.openscad.org/
-[MediMemo]: http://www.atcamed.com/medimemo/index.html
-[Slic3r]: https://slic3r.org/
+[MediMemo]: https://web.archive.org/web/20240424185129/https://www.mobilitysmart.co.uk/medimemo-weekly-pill-organiser.html
 [prerendered]: https://gist.github.com/me-and/301d97648008bfb42f4573cb1a5ee3b4
+[Alex builds]: https://alexwlchan.net/2017/building-your-repo/
+[PrusaSlicer]: https://www.prusa3d.com/page/prusaslicer_424/
+[Barr]: https://nextjeff.com/creating-multi-extruder-designs-in-openscad-for-3d-printing-6c43a002ef64
