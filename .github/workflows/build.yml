@@ -4,8 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Compile
       run: |
@@ -13,10 +12,11 @@ jobs:
               mkdir -p lids
               mv *.stl lids
 
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v4
       with:
         name: stl
         path: lids
+        if-no-files-found: error
 
     - name: Create GitHub Gist
       if: github.ref == 'refs/heads/main'
