@@ -37,7 +37,7 @@ Setting up the multi-material print is heavily based on [Jeff Barr's _Creating M
 
 [OpenSCAD]: http://www.openscad.org/
 [MediMemo]: https://web.archive.org/web/20240424185129/https://www.mobilitysmart.co.uk/medimemo-weekly-pill-organiser.html
-[prerendered]: https://gist.github.com/me-and/301d97648008bfb42f4573cb1a5ee3b4
+[prerendered]: https://www.printables.com/model/1097565-medimemo-replacement-lids/files
 [Alex builds]: https://alexwlchan.net/2017/building-your-repo/
 [PrusaSlicer]: https://www.prusa3d.com/page/prusaslicer_424/
 [Barr]: https://nextjeff.com/creating-multi-extruder-designs-in-openscad-for-3d-printing-6c43a002ef64
